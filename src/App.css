@@ -1,38 +1,205 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: #141517;
+  padding: 0 1rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.parent {
+  width: 100%;
+  max-width: 28rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 {
+  font-size: 1rem;
+  margin: 0;
+  color: #a3a3a3;
+}
+
+.password-div {
+  background-color: rgb(38, 38, 38);
+  margin: 1.5rem 0;
+  padding: 0 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.password-div > p {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.password-div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
+  cursor: pointer;
+  color: rgb(55, 225, 185);
+}
+
+.strength-test-div {
+  padding: 1.2rem;
+  background-color: rgb(38, 38, 38);
+  margin: 1.5rem 0;
+}
+
+.strength-test-div > .character-length {
+  width: 100%;
+}
+
+.strength-test-div > .character-length > .title {
+  font-size: 0.8rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.strength-test-div > .character-length > .title > .value {
+  font-size: 1.2rem;
+  color: rgb(55, 225, 185);
+}
+
+.strength-test-div > .character-length > .strength-progress {
+  width: 100%;
+  height: 0.3rem;
+  background-color: #333;
+  margin: 0.2rem 0;
+}
+
+.strength-test-div > .character-length > .strength-progress > .progress-bar {
+  height: 100%;
+  background-color: rgb(55, 225, 185);
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.strength-test-div
+  > .character-length
+  > .strength-progress
+  > .progress-bar
+  > .progress-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  z-index: 10;
+}
+
+.strength-test-div > .checkboxes {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+}
+
+.strength-test-div > .checkboxes > .checkbox-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.strength-test-div > .checkboxes > .checkbox-item > .checkbox {
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.strength-test-div > .checkboxes > .checkbox-item > .checkbox > .checkbox-icon {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(55, 225, 185);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #141517;
+}
+
+.strength-test-div > .checkboxes > .checkbox-item > p {
+  font-size: 0.8rem;
+}
+
+.strength-test-div > .overall-strength {
+  background-color: #141517;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+
+.strength-test-div > .overall-strength > p {
+  font-size: 0.8rem;
+  color: rgb(133, 133, 133);
+}
+
+.strength-test-div > .overall-strength > .strength-rating {
+  font-size: 1rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.strength-test-div > .overall-strength > .strength-rating > .rates {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.strength-test-div
+  > .overall-strength
+  > .strength-rating
+  > .rates
+  > .rate-item {
+  width: 0.4rem;
+  height: 1.2rem;
+  border: 1px solid white;
+}
+
+.strength-test-div
+  > .overall-strength
+  > .strength-rating
+  > .rates
+  > .rate-item
+  > .fill {
+  width: 100%;
+  height: 100%;
+}
+
+.strength-test-div > button {
+  width: 100%;
+  background-color: rgb(55, 225, 185);
+  color: #141517;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.strength-test-div > button:hover {
+  background-color: rgb(76, 251, 211);
 }
