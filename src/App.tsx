@@ -4,6 +4,7 @@ import "./App.css";
 interface ICheckboxProps {
 	checked: boolean;
 	label: string;
+	checker: any;
 }
 
 interface IRateItemProps {
@@ -65,10 +66,10 @@ const rightArrow = (
 	</svg>
 );
 
-const CheckboxItem = ({ checked, label }: ICheckboxProps) => {
+const CheckboxItem = ({ checked, label, checker }: ICheckboxProps) => {
 	return (
 		<div className="checkbox-item">
-			<div className="checkbox">
+			<div className="checkbox" onClick={checker}>
 				{checked && <div className="checkbox-icon">{tick}</div>}
 			</div>
 			<p>{label}</p>
@@ -116,12 +117,41 @@ const App = () => {
 		}
 	};
 
-  const calculateRangeColor = ((rangeValue - 0) * 20 / (20 - 0))*5 + '% 100%' ;
+	const calculateRangeColor =
+		(((rangeValue - 0) * 20) / (20 - 0)) * 5 + "% 100%";
 
-  // function 
-  const copyHandler = () => {
-    console.log("coppied")
-  }
+	// function
+	const copyHandler = () => {
+		console.log("coppied");
+	};
+
+	const checkBoxes = [
+		{
+			id: 1,
+			label: "Include Uppercase Letters",
+			checktick: false,
+		},
+		{
+			id: 2,
+			label: "Include Lowercase Letters",
+			checktick: false,
+		},
+		{
+			id: 3,
+			label: "Include Numbers",
+			checktick: false,
+		},
+		{
+			id: 4,
+			label: "Include Symbols",
+			checktick: false,
+		},
+	];
+
+	const checkHandler = (index: number) => {
+		checkBoxes[index - 1].checktick = !checkBoxes[index - 1].checktick;
+		console.log(checkBoxes[index -1]);
+	};
 
 	return (
 		<div className="App">
@@ -142,19 +172,25 @@ const App = () => {
 								type="range"
 								min="0"
 								max="20"
-								onChange={(e:any) => setRangeValue(e.target.value)}
+								step="1"
+								onChange={(e: any) => setRangeValue(e.target.value)}
 								value={rangeValue}
-                style={{backgroundSize: calculateRangeColor}}
-                className="inputRange"
+								style={{ backgroundSize: calculateRangeColor }}
+								className="inputRange"
 							/>
 						</div>
 					</div>
-					<div className="checkboxes">
-						<CheckboxItem checked={true} label={"Include Uppercase Letters"} />
-						<CheckboxItem checked={true} label={"Include Lowercase Letters"} />
-						<CheckboxItem checked={true} label={"Include Numbers"} />
-						<CheckboxItem checked={false} label={"Include Symbols"} />
-					</div>
+					{checkBoxes.map((item, index) => {
+						return (
+							<div className="checkboxes" key={index}>
+								<CheckboxItem
+									checked={item.checktick}
+									label={item.label}
+									checker={() => checkHandler(item.id)}
+								/>
+							</div>
+						);
+					})}
 					<div className="overall-strength">
 						<p>STRENGTH</p>
 						<div className="strength-rating">
