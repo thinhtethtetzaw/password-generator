@@ -181,7 +181,7 @@ const App = () => {
       case 3:
         return "Medium";
       case 4:
-        return "String";
+        return "Strong";
     }
   };
 
@@ -235,9 +235,9 @@ const App = () => {
 
     // generate password
     for (var i = 0; i < rangeValue; ++i) {
-      password += includeChars.charAt(
+      password += 
         Math.floor(Math.random() * includeChars.length)
-      );
+      
     }
 
     // change password strength
@@ -276,8 +276,8 @@ const App = () => {
         <div className="password-div">
           <p>{password || "password"}</p>
           <div onClick={copyHandler}>
-            <p>{isCopied ? "Copied" : ""}</p>
-            {isCopied ? copied : copyToClipboard}
+            <p>{isCopied === true ? "Copied" : ""}</p>
+            {isCopied === true ? copied : copyToClipboard}
           </div>
         </div>
         <div className="strength-test-div">
