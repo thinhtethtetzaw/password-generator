@@ -235,9 +235,9 @@ const App = () => {
 
     // generate password
     for (var i = 0; i < rangeValue; ++i) {
-      password += 
+      password += includeChars.charAt(
         Math.floor(Math.random() * includeChars.length)
-      
+      )
     }
 
     // change password strength
